@@ -72,10 +72,16 @@ def _relation_block(relation: str) -> str:
     )
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "title": "메시지 다듬기",
+        "readOnlyHint": True,
+        "openWorldHint": False,
+    }
+)
 def polish_message(text: str, relation: str = "상사", intent: str = "일반") -> str:
-    """보낼 메시지를 상대와 의도에 맞게 다듬는다. 3가지 버전(정중/간결/사유강조)을
-    동시에 생성하기 위한 구조화된 변환 지시를 반환한다.
+    """톤메이트: 보낼 메시지를 상대와 의도에 맞게 다듬어 정중/간결/사유강조 3가지
+    버전을 동시에 생성하기 위한 구조화된 변환 지시를 반환한다.
 
     Args:
         text: 사용자가 보내려는 원본 문장
@@ -97,10 +103,16 @@ def polish_message(text: str, relation: str = "상사", intent: str = "일반") 
     )
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "title": "화난 메시지 식히기",
+        "readOnlyHint": True,
+        "openWorldHint": False,
+    }
+)
 def soften_message(text: str, relation: str = "상사") -> str:
-    """화가 났거나 딱딱한/공격적인 메시지를 감정을 가라앉힌 정중한 버전으로 바꾼다.
-    원본이 상대에게 어떻게 읽힐지 '뉘앙스 경고'도 함께 제공한다.
+    """톤메이트: 화가 났거나 딱딱한/공격적인 메시지를 감정을 가라앉힌 정중한 버전으로
+    바꾼다. 원본이 상대에게 어떻게 읽힐지 '뉘앙스 경고'도 함께 제공한다.
 
     Args:
         text: 보내기 전 식히고 싶은 원본 문장
@@ -117,9 +129,16 @@ def soften_message(text: str, relation: str = "상사") -> str:
     )
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "title": "답장 도우미",
+        "readOnlyHint": True,
+        "openWorldHint": False,
+    }
+)
 def reply_helper(received: str, relation: str = "상사", stance: str = "중립") -> str:
-    """받은 메시지에 어떻게 답할지 막막할 때, 답장 후보 3개를 만들기 위한 지시를 반환한다.
+    """톤메이트: 받은 메시지에 어떻게 답할지 막막할 때, 답장 후보 3개를 만들기 위한
+    지시를 반환한다.
 
     Args:
         received: 내가 받은 메시지(상대가 보낸 것)
@@ -139,9 +158,15 @@ def reply_helper(received: str, relation: str = "상사", stance: str = "중립"
     )
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "title": "맞춤법 점검",
+        "readOnlyHint": True,
+        "openWorldHint": False,
+    }
+)
 def check_korean(text: str) -> str:
-    """한국어 맞춤법·띄어쓰기를 점검하기 위한 지시를 반환한다(부가 기능).
+    """톤메이트: 한국어 맞춤법·띄어쓰기를 점검하기 위한 지시를 반환한다(부가 기능).
 
     Args:
         text: 점검할 문장
