@@ -38,21 +38,18 @@ ChatGPT한테 "정중하게 고쳐줘" 하면 매번 결과가 달라요. 어떤
 
 ```bash
 pip install -r requirements.txt
-python server.py            # HTTP, 기본 8000 포트
-TRANSPORT=stdio python server.py   # stdio로 쓰고 싶을 때
+python server.py                    # HTTP, 기본 8000 포트
+TRANSPORT=stdio python server.py    # stdio로 쓰고 싶을 때
 ```
 
 ## 배포
-
-Docker로 빌드해서 올리면 됩니다. 엔드포인트 경로는 `/mcp`.
 
 ```bash
 docker build -t tonemate .
 docker run -p 8000:8000 tonemate
 ```
 
-PlayMCP in KC에 Git 소스 빌드로 올리는 경우엔 이 저장소 주소랑 main 브랜치,
-Dockerfile 경로만 넣으면 알아서 빌드해줍니다.
+엔드포인트 경로는 `/mcp`.
 
 ## 앞으로
 
